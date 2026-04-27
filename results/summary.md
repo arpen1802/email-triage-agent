@@ -8,17 +8,17 @@ Model under test: `claude-sonnet-4-6`. Judge model: `claude-opus-4-6`.
 
 | Architecture | Accuracy | Over-reply rate | Reliability | Cost / email | Total cost | Latency p50 | Latency p95 | Judge score |
 |---|---|---|---|---|---|---|---|---|
-| arch1 | 0.627 ± 0.543 | 0.000 | 0.667 | $0.00000 | $0.0000 | 1 ms | 1 ms | 2.69/5 |
-| arch2 | 0.640 ± 0.554 | 0.020 | 0.667 | $0.00000 | $0.0000 | 2 ms | 2 ms | 3.33/5 |
-| arch3 | 0.627 ± 0.543 | 0.000 | 0.667 | $0.00000 | $0.0000 | 1 ms | 3 ms | 3.33/5 |
+| arch1 | 0.800 ± 0.000 | 0.029 | 1.000 | $0.00370 | $0.1848 | 2897 ms | 6388 ms | 4.36/5 |
+| arch2 | 0.740 ± 0.000 | 0.294 | 1.000 | $0.01299 | $0.6493 | 8384 ms | 16689 ms | 4.00/5 |
+| arch3 | 0.780 ± 0.000 | 0.059 | 1.000 | $0.00447 | $0.2237 | 3265 ms | 11691 ms | 4.27/5 |
 
 ## Per-category F1 (last trial)
 
 | Architecture | reply_now | reply_later | archive | unsubscribe |
 |---|---|---|---|---|
-| arch1 | 1.00 | 0.87 | 0.88 | 1.00 |
-| arch2 | 0.97 | 0.95 | 0.96 | 0.95 |
-| arch3 | 1.00 | 0.90 | 0.90 | 0.95 |
+| arch1 | 0.90 | 0.63 | 0.73 | 0.90 |
+| arch2 | 0.75 | 0.27 | 0.85 | 0.95 |
+| arch3 | 0.88 | 0.56 | 0.73 | 0.90 |
 
 ## Notes on reading these numbers
 

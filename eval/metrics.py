@@ -203,12 +203,22 @@ def main(argv: list[str] | None = None) -> None:
 
     labels = load_labels()
     per_arch_runs: dict[str, list[dict]] = defaultdict(list)
+    skipped: list[str] = []
     for run_file in sorted(RAW.glob("*.json")):
-        # filename: arch1_trial1.json etc.
-        stem = run_file.stem
-        arch_key = stem.split("_trial")[0] if "_trial" in stem else stem
-        summary = summarise_run(arch_key, run_file, labels)
+        # Skip empty / corrupt files instead of crashing the whole summary.
+        if run_file.stat().st_size == 0:
+            skipped.append(run_file.name + " (empty)")
+            continue
+        try:
+            stem = run_file.stem
+            arch_key = stem.split("_trial")[0] if "_trial" in stem else stem
+            summary = summarise_run(arch_key, run_file, labels)
+        except (json.JSONDecodeError, KeyError) as e:
+            skipped.append(f"{run_file.name} (corrupt: {e})")
+            continue
         per_arch_runs[arch_key].append(summary)
+    if skipped:
+        print(f"WARNING: skipped {len(skipped)} unreadable file(s): " + ", ".join(skipped))
 
     if not per_arch_runs:
         print("No runs in results/raw_outputs/. Run `python -m eval.run_eval` first.")

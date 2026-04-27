@@ -26,14 +26,31 @@ REPO_ROOT = Path(__file__).resolve().parent
 
 # Load .env at the repo root, if python-dotenv is installed and a .env exists.
 # This lets users paste ANTHROPIC_API_KEY into .env instead of exporting it.
+# `override=True` makes the .env file authoritative — if a stale value is sitting
+# in the shell environment (a common footgun after `source .env`), the .env wins.
 try:
     from dotenv import load_dotenv  # type: ignore
 
     _env_path = REPO_ROOT / ".env"
     if _env_path.exists():
-        load_dotenv(_env_path, override=False)
+        load_dotenv(_env_path, override=True)
 except ImportError:
     pass
+
+# Fail loudly if the placeholder string is still being used as the key.
+# Catches the common "I forgot to paste the real key" mistake before any API
+# call would 401 silently.
+import os as _os
+_key = _os.environ.get("ANTHROPIC_API_KEY", "")
+if _key and "paste" in _key.lower():
+    import sys as _sys
+    print(
+        "FATAL: ANTHROPIC_API_KEY is set to the placeholder string. "
+        "Open .env and replace the placeholder with your real sk-ant-... key, "
+        "or `unset ANTHROPIC_API_KEY` if it's stuck in your shell environment.",
+        file=_sys.stderr,
+    )
+    raise SystemExit(2)
 
 # Per-million-token pricing (USD). Conservative defaults; override per-model if needed.
 PRICING = {

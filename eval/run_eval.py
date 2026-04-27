@@ -96,6 +96,7 @@ def main() -> None:
     parser.add_argument("--arch", choices=list(ARCHES.keys()) + ["all"], default="all")
     parser.add_argument("--no-judge", action="store_true", help="Skip the LLM-as-judge pass.")
     parser.add_argument("--limit", type=int, default=None, help="Limit to first N emails (for debugging).")
+    parser.add_argument("--fresh", action="store_true", help="Delete all files in results/raw_outputs/ before running, so the summary won't mix old and new data.")
     args = parser.parse_args()
 
     emails = load_jsonl(DATA_DIR / "emails.jsonl")
@@ -107,6 +108,10 @@ def main() -> None:
         emails = emails[: args.limit]
 
     RAW_DIR.mkdir(parents=True, exist_ok=True)
+    if args.fresh:
+        for stale in RAW_DIR.glob("*.json"):
+            stale.unlink()
+        print(f"Cleared {RAW_DIR.relative_to(REPO_ROOT)} (--fresh).")
 
     client = LLMClient(model=args.model, mock=args.mock)
     judge_client = None if args.no_judge else LLMClient(model=args.judge_model, mock=args.mock)
@@ -124,7 +129,10 @@ def main() -> None:
             payload["trial"] = trial
             payload["mock"] = args.mock
             out_path = RAW_DIR / f"{arch_key}_trial{trial}.json"
-            out_path.write_text(json.dumps(payload, indent=2, default=str))
+            serialized = json.dumps(payload, indent=2, default=str)
+            if not serialized or len(serialized) < 50:
+                raise RuntimeError(f"refusing to write a suspiciously empty payload to {out_path}")
+            out_path.write_text(serialized)
             n_correct = sum(1 for p in payload["predictions"] if p["category"] == labels[p["email_id"]]["category"])
             tot_cost = sum(p["_meta"]["cost_usd"] for p in payload["predictions"])
             print(f"    -> wrote {out_path.relative_to(REPO_ROOT)} | accuracy {n_correct}/{len(emails)} | cost ${tot_cost:.4f} | wall {payload['wallclock_s']:.1f}s")
