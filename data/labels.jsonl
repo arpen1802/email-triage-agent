@@ -1,0 +1,50 @@
+{"id": "e001", "category": "reply_now", "ambiguous": false, "notes": "Direct ask with two specific time options; manager-adjacent peer wants confirmation before all-hands."}
+{"id": "e002", "category": "unsubscribe", "ambiguous": false, "notes": "Generic newsletter digest; user has many of these."}
+{"id": "e003", "category": "reply_now", "ambiguous": false, "notes": "Paying customer, explicit deadline (board review tomorrow), reproducible bug, clear ask."}
+{"id": "e004", "category": "unsubscribe", "ambiguous": true, "notes": "Cold sales pitch. Could be archive if user wants the contact, but the right default for unrequested cold outreach is unsubscribe."}
+{"id": "e005", "category": "reply_later", "ambiguous": false, "notes": "Says 'no action needed tonight' but the postmortem on Friday will need engagement; soft acknowledgement appropriate later."}
+{"id": "e006", "category": "reply_now", "ambiguous": false, "notes": "Friend with a soft deadline (commit by Thursday). Short reply expected."}
+{"id": "e007", "category": "archive", "ambiguous": false, "notes": "Phishing — deliberately do not engage. Archive (or report); definitely not reply or unsubscribe (unsubscribe link could itself be malicious)."}
+{"id": "e008", "category": "archive", "ambiguous": false, "notes": "Receipt — informational, no action."}
+{"id": "e009", "category": "unsubscribe", "ambiguous": false, "notes": "Tech newsletter the user no longer reads."}
+{"id": "e010", "category": "reply_now", "ambiguous": false, "notes": "Manager checking in with explicit ask for a 1:1; should respond same-day."}
+{"id": "e011", "category": "archive", "ambiguous": false, "notes": "PR-merged notification; informational."}
+{"id": "e012", "category": "archive", "ambiguous": false, "notes": "LinkedIn invitations are handled in LinkedIn, not email."}
+{"id": "e013", "category": "reply_later", "ambiguous": false, "notes": "Speaking invitation with three-week deadline; not urgent today."}
+{"id": "e014", "category": "reply_now", "ambiguous": false, "notes": "Family member asking about a weekend plan; reply same day."}
+{"id": "e015", "category": "reply_later", "ambiguous": true, "notes": "Recruiter outreach. Could be unsubscribe (not interested), could be reply_later (polite no/maybe). Default is reply_later for any first-touch from a real person."}
+{"id": "e016", "category": "archive", "ambiguous": false, "notes": "Auto-resolved alert; no action."}
+{"id": "e017", "category": "reply_now", "ambiguous": false, "notes": "Customer integration question with a Friday ship deadline; concrete spec question we can answer."}
+{"id": "e018", "category": "unsubscribe", "ambiguous": false, "notes": "Product marketing email."}
+{"id": "e019", "category": "reply_later", "ambiguous": true, "notes": "Peer asking for a read on a design choice 'by next week.' Could be reply_now if user wants to be helpful immediately, but reply_later is correct given the explicit timeframe."}
+{"id": "e020", "category": "archive", "ambiguous": false, "notes": "Itinerary confirmation — informational."}
+{"id": "e021", "category": "reply_later", "ambiguous": true, "notes": "Vague 'do you have a sec?' Without context, most teams treat as reply_later. Could plausibly be reply_now if Chris is known to be a peer."}
+{"id": "e022", "category": "unsubscribe", "ambiguous": false, "notes": "Daily news roundup the user no longer reads."}
+{"id": "e023", "category": "reply_now", "ambiguous": false, "notes": "Beta user with a reproducible blocking crash; needs response and triage."}
+{"id": "e024", "category": "reply_now", "ambiguous": false, "notes": "Investor with concrete date constraints (May 5-9). Time-sensitive scheduling."}
+{"id": "e025", "category": "unsubscribe", "ambiguous": false, "notes": "Mass-market promotional spam."}
+{"id": "e026", "category": "reply_later", "ambiguous": true, "notes": "Family group thread, photo share with no direct question. Could be archive but social norm is to acknowledge family — reply_later is safer."}
+{"id": "e027", "category": "archive", "ambiguous": false, "notes": "Calendar reminder."}
+{"id": "e028", "category": "reply_now", "ambiguous": false, "notes": "VP with explicit EOD deadline today."}
+{"id": "e029", "category": "reply_later", "ambiguous": false, "notes": "Candidate follow-up; respond within a couple days but not necessarily today."}
+{"id": "e030", "category": "reply_now", "ambiguous": false, "notes": "Critical security CVE on the API repo. Needs review and merge of the Dependabot PR."}
+{"id": "e031", "category": "unsubscribe", "ambiguous": false, "notes": "Workspace digest the user doesn't read."}
+{"id": "e032", "category": "reply_now", "ambiguous": false, "notes": "Mom with concrete decision and concrete options. Reply same day."}
+{"id": "e033", "category": "reply_later", "ambiguous": false, "notes": "Invoice with a May 15 due date; needs forwarding to finance but not today."}
+{"id": "e034", "category": "archive", "ambiguous": false, "notes": "Conference recordings notification — informational."}
+{"id": "e035", "category": "reply_now", "ambiguous": false, "notes": "PM has a Friday lock for marketing calendar; concrete yes/no needed."}
+{"id": "e036", "category": "reply_later", "ambiguous": true, "notes": "Cold but polite ask from a real person; could plausibly be archived if you triage hard, but the safer default for low-effort networking asks from real people is reply_later."}
+{"id": "e037", "category": "unsubscribe", "ambiguous": false, "notes": "Social media digest."}
+{"id": "e038", "category": "reply_later", "ambiguous": false, "notes": "Survey result needing analysis later this week; explicit 'no rush this week.'"}
+{"id": "e039", "category": "reply_now", "ambiguous": false, "notes": "Hard April 30 deadline with personal financial consequences if missed; also explicitly asks to confirm directly."}
+{"id": "e040", "category": "archive", "ambiguous": false, "notes": "Newsletter the user wants to keep but isn't acting on now. Distinct from unsubscribe — the user reads it later."}
+{"id": "e041", "category": "reply_now", "ambiguous": false, "notes": "Same-day lunch ask; reply within hours."}
+{"id": "e042", "category": "unsubscribe", "ambiguous": false, "notes": "Product marketing email."}
+{"id": "e043", "category": "reply_later", "ambiguous": true, "notes": "Sensitive heads-up. Reply_later is right because (a) responding in writing is unwise, (b) the source is anonymous; better handled offline. Could be archive if user wants to ignore."}
+{"id": "e044", "category": "archive", "ambiguous": false, "notes": "Tax documents notification — informational, no action."}
+{"id": "e045", "category": "reply_now", "ambiguous": false, "notes": "14-month paying customer with a detailed feature request and explicit asks (timeline). Acknowledge today."}
+{"id": "e046", "category": "archive", "ambiguous": true, "notes": "FYI design doc with no direct ask. Could be reply_later if user is in the affected area, but the email itself says no specific ask, so archive is correct."}
+{"id": "e047", "category": "archive", "ambiguous": false, "notes": "CEO-impersonation phishing. Archive/report; definitely do NOT draft a reply."}
+{"id": "e048", "category": "unsubscribe", "ambiguous": false, "notes": "Newsletter."}
+{"id": "e049", "category": "reply_now", "ambiguous": false, "notes": "Director with Thursday deadline and specific structured ask. Reply today."}
+{"id": "e050", "category": "archive", "ambiguous": true, "notes": "One-word reply that closes a thread; no further response expected. Could be reply_later if user wants to send 'k' but the right default is leave it."}

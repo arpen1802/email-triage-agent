@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+triage-venv/
+.env
+.DS_Store
+results/raw_outputs/
+*.egg-info/
