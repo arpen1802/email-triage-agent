@@ -7,3 +7,7 @@ triage-venv/
 .DS_Store
 results/raw_outputs/
 *.egg-info/
+# Gmail OAuth artefacts — must never be committed
+credentials.json
+token.json
+.gmail_triage_cache/
